@@ -3,6 +3,11 @@ export default {
     const url = new URL(request.url);
     const acceptHeader = request.headers.get('Accept') || '';
 
+    // 0. Chuyển hướng từ / sang /bench/
+    if (url.pathname === '/') {
+      return Response.redirect(`${url.origin}/bench/${url.search}`, 302);
+    }
+
     // Chỉ xử lý logic đặc biệt cho đường dẫn /bench
     if (url.pathname === '/bench' || url.pathname.startsWith('/bench/')) {
       // 1. Trả về manifest.json nếu Agent gửi header Accept: application/json tại /bench
