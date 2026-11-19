@@ -1,0 +1,13 @@
+{
+  "name": "bench-portal",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/generate-bench.js",
+    "dev": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}
